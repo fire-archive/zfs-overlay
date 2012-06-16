@@ -14,15 +14,15 @@ zfs create -o mountpoint=/home rpool/HOME
 zfs create -o mountpoint=/root rpool/HOME/root
 
 # Create portage directories
-zfs create -o mountpoint=none rpool/funtoo
-zfs create -o mountpoint=/usr/portage rpool/funtoo/portage
-zfs create -o mountpoint=/usr/portage/distfiles rpool/funtoo/distfiles
+zfs create -o mountpoint=none rpool/FUNTOO
+zfs create -o mountpoint=/usr/portage rpool/FUNTOO/portage
+zfs create -o mountpoint=/usr/portage/distfiles rpool/FUNTOO/distfiles
 
 # Create optional packages directory
-zfs create -o mountpoint=/usr/portage/packages rpool/funtoo/packages
+zfs create -o mountpoint=/usr/portage/packages rpool/FUNTOO/packages
 
 # Create optional ccache directory
-zfs create -o mountpoint=/var/tmp/ccache -o compression=gzip-9 rpool/funtoo/ccache
+zfs create -o mountpoint=/var/tmp/ccache -o compression=gzip-9 rpool/FUNTOO/ccache
 
 #
 # Download stage3 from http://distfiles.funtoo.org/releases/amd64/current-stage3/ into /mnt/funtoo
@@ -110,7 +110,7 @@ genkernel all --no-clean --no-mountboot --zfs --bootloader=grub2 --callback="mod
 #
 
 # Make recovery snapshot after booting into new install
-zfs snapshot rpool/ROOT/funtoo@install
+zfs snapshot rpool/ROOT/FUNTOO@install
 
 # Additional tips
 
